@@ -206,11 +206,9 @@ function TimeAgo($oldTime, $newTime) {
                         </label>
                     </div>
                 </div>
-
                 <div class="flex justify-end">
-        <button type="submit" name="submitPost" class="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600 transition-all">Post</button>
-    </div>
-</form>
+                <button type="submit" name="submitPost" class="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600 transition-all">Post</button>
+                </div>
             </form>
         </div>
 
