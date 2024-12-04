@@ -207,7 +207,10 @@ function TimeAgo($oldTime, $newTime) {
                     </div>
                 </div>
 
-                <button type="submit" name="submitPost" class="w-full bg-blue-600 text-white p-3 rounded-lg mt-4 hover:bg-blue-700 transition duration-300">Post</button>
+                <div class="flex justify-end">
+        <button type="submit" name="submitPost" class="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600 transition-all">Post</button>
+    </div>
+</form>
             </form>
         </div>
 
