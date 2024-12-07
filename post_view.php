@@ -29,37 +29,24 @@ $dispR = mysqli_query($con, $disp);
 $DRDR = mysqli_fetch_assoc($dispR);
 $naymu = $DRDR['display_name'];
 
-function TimeAgo($oldTime, $newTime)
-{
-    $timeCalc = strtotime($newTime) - strtotime($oldTime);
-    if ($timeCalc < 0) {
-        $timeCalc = "FROM THE DISTANT FUTURE";
-    } else if ($timeCalc >= (60 * 60 * 24 * 30 * 12 * 2)) {
-        $timeCalc = intval($timeCalc / 60 / 60 / 24 / 30 / 12) . " years ago";
-    } else if ($timeCalc >= (60 * 60 * 24 * 30 * 12)) {
-        $timeCalc = intval($timeCalc / 60 / 60 / 24 / 30 / 12) . " year ago";
-    } else if ($timeCalc >= (60 * 60 * 24 * 30 * 2)) {
-        $timeCalc = intval($timeCalc / 60 / 60 / 24 / 30) . " months ago";
-    } else if ($timeCalc >= (60 * 60 * 24 * 30)) {
-        $timeCalc = intval($timeCalc / 60 / 60 / 24 / 30) . " month ago";
-    } else if ($timeCalc >= (60 * 60 * 24 * 2)) {
-        $timeCalc = intval($timeCalc / 60 / 60 / 24) . " days ago";
-    } else if ($timeCalc >= (60 * 60 * 24)) {
-        $timeCalc = " Yesterday";
-    } else if ($timeCalc >= (60 * 60 * 2)) {
-        $timeCalc = intval($timeCalc / 60 / 60) . " hours ago";
-    } else if ($timeCalc >= (60 * 60)) {
-        $timeCalc = intval($timeCalc / 60 / 60) . " hour ago";
-    } else if ($timeCalc >= 60 * 2) {
-        $timeCalc = intval($timeCalc / 60) . " minutes ago";
-    } else if ($timeCalc >= 60) {
-        $timeCalc = intval($timeCalc / 60) . " minute ago";
-    } else if ($timeCalc > 0) {
-        $timeCalc .= " seconds ago";
-    } else if ($timeCalc == 0) {
-        $timeCalc = "Just now";
-    } else $timeCalc = "Unknown date";
-    return $timeCalc;
+function TimeAgo($oldTime, $newTime) {
+    $timeDifference = strtotime($newTime) - strtotime($oldTime);
+    $units = [
+        31536000 => "year",
+        2592000 => "month",
+        86400 => "day",
+        3600 => "hour",
+        60 => "minute",
+        1 => "second"
+    ];
+
+    foreach ($units as $unitInSeconds => $unitName) {
+        if ($timeDifference >= $unitInSeconds) {
+            $unitCount = floor($timeDifference / $unitInSeconds);
+            return "$unitCount $unitName" . ($unitCount > 1 ? "s" : "") . " ago";
+        }
+    }
+    return "Just now";
 }
 ?>
 <!DOCTYPE html>
