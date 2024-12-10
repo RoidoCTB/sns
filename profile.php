@@ -11,17 +11,17 @@ $user = $_REQUEST['user'];
 
 $dp = "";
 $userQuery = "SELECT * from users where username='" . $user . "'";
-$userResult = mysqli_query($con, $userQuery) or die(mysqli_error());
+$userResult = mysqli_query($con, $userQuery) or die(mysqli_error($con));
 $userRows = mysqli_fetch_assoc($userResult);
 if ($userRows['prof_pic'] == null) $dp = "uploads/avatars/noimg.jpg";
 else $dp = $userRows['prof_pic'];
 
 $postCountQuery = "SELECT COUNT(post_id) AS postCTR FROM posts WHERE submittedby='" . $user . "'";
-$pcqResult = mysqli_query($con, $postCountQuery) or die(mysqli_error());
+$pcqResult = mysqli_query($con, $postCountQuery) or die(mysqli_error($con));
 $pcqRows = mysqli_fetch_assoc($pcqResult);
 
 $commentCountQuery = "SELECT COUNT(comment_id) AS commentCTR FROM comments WHERE submittedby='$user'";
-$ccqResult = mysqli_query($con, $commentCountQuery) or die(mysqli_error());
+$ccqResult = mysqli_query($con, $commentCountQuery) or die(mysqli_error($con));
 $ccqRows = mysqli_fetch_assoc($ccqResult);
 
 $profile_picture = "";

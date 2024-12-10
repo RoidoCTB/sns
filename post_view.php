@@ -11,7 +11,7 @@ $pvqR = mysqli_fetch_assoc($pvqC);
 $user = $pvqR['submittedby'];
 $dp = "";
 $userQuery = "SELECT * from users where username='" . $user . "'";
-$userResult = mysqli_query($con, $userQuery) or die(mysqli_error());
+$userResult = mysqli_query($con, $userQuery) or die(mysqli_error($con));
 $userRows = mysqli_fetch_assoc($userResult);
 if ($userRows['prof_pic'] == null) $dp = "uploads/avatars/noimg.jpg";
 else $dp = $userRows['prof_pic'];
