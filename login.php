@@ -100,24 +100,35 @@ else if (isset($_POST['register']) && $_POST['register'] == 'details') {
     <meta charset="utf-8">
     <title>Login</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Add FontAwesome CDN link -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
 
     <!-- Container for Login Form -->
     <div class="bg-white w-full max-w-md p-8 rounded-xl shadow-md">
+
+        <!-- Logo Section -->
+        <div class="logo flex items-center justify-center mb-8">
+            <!-- FontAwesome Icon for Logo -->
+            <i class="fas fa-users text-4xl mr-2 text-blue-600"></i>
+            <!-- Text Logo -->
+            <div class="text-2xl font-bold text-gray-800">Social</div>
+        </div>
+
         <!-- Status message -->
         <p class="text-red-500 text-center mb-4"><?php echo $status; ?></p>
-        
+
         <!-- Login Form -->
         <form action="" method="post" name="login" class="space-y-4">
             <h1 class="text-2xl font-semibold text-center text-gray-800">Log In</h1>
-            
+
             <input type="hidden" name="login" value="details" />
 
             <input class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
                    type="text" name="usernameLogin" placeholder="Username or Email" required />
-            
+
             <input class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
                    type="password" name="passwordLogin" placeholder="Password" required />
 

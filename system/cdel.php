@@ -10,7 +10,7 @@ if ($_SESSION['role'] !== 'admin') {
 
 if (isset($_GET['comment_id']) && isset($_GET['post_id'])) {
     $commentId = $_GET['comment_id'];
-    $postId = $_GET['post_id']; // Optional: use to redirect to the post view after deletion
+    $postId = $_GET['post_id'];
 
     // Using prepared statements to prevent SQL injection
     $deleteCommentQuery = "DELETE FROM comments WHERE comment_id = ?";
