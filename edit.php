@@ -126,20 +126,28 @@ if (isset($_POST['new']) && $_POST['new'] == 'picture') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Profile</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100 text-gray-900">
 
-    <!-- Navigation Bar -->
-    <div class="w-full bg-gray-900 text-white p-4">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
+ <!-- Navigation Bar -->
+<div class="w-full bg-gray-900 text-white p-4">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+       
+        <div class="flex items-center">
+            <i class="fas fa-users text-3xl text-blue-500 mr-2"></i>
             <a href="index.php" class="text-xl font-bold">Home</a>
-            <div class="space-x-4">
-                <a href="profile.php?user=<?php echo $_SESSION['username']; ?>" class="hover:underline"><?php echo $_SESSION['username']; ?></a>
-                <a href="edit.php" class="hover:underline">Edit Profile</a>
-                <a href="logout.php" class="hover:underline">Logout</a>
-            </div>
+        </div>
+
+        <div class="space-x-4">
+            <a href="profile.php?user=<?php echo $_SESSION['username']; ?>" class="hover:underline"><?php echo $_SESSION['username']; ?></a>
+            <a href="edit.php" class="hover:underline">Edit Profile</a>
+            <a href="logout.php" class="hover:underline">Logout</a>
         </div>
     </div>
+</div>
+
+
 
     <!-- Main Content -->
     <div class="max-w-4xl mx-auto my-8 p-6 bg-white rounded-lg shadow-lg">

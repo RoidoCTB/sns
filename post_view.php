@@ -56,16 +56,20 @@ function TimeAgo($oldTime, $newTime) {
     <meta charset="utf-8">
     <title><?php echo $pvqR['submittedby']; ?>'s post</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="css/w3.css" />
-    <link rel="stylesheet" href="css/w3-1.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 
 <body class="bg-gray-100">
 
- <!-- Navigation Bar -->
+   <!-- Navigation Bar -->
 <div class="w-full bg-gray-900 text-white p-4">
     <div class="max-w-6xl mx-auto flex justify-between items-center">
-        <a href="index.php" class="text-xl font-bold">Home</a>
+       
+        <div class="flex items-center">
+            <i class="fas fa-users text-3xl text-blue-500 mr-2"></i>
+            <a href="index.php" class="text-xl font-bold">Home</a>
+        </div>
+
         <div class="space-x-4">
             <a href="profile.php?user=<?php echo $_SESSION['username']; ?>" class="hover:underline"><?php echo $_SESSION['username']; ?></a>
             <a href="edit.php" class="hover:underline">Edit Profile</a>
